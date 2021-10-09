@@ -4,7 +4,7 @@ const { assert } = require("chai");
 describe("basic", () => {
   // Configure the client to use the local cluster.
   anchor.setProvider(anchor.Provider.env());
-  const program = anchor.workspace.Sandbox;
+  const program = anchor.workspace.Basic;
   const remainingAccount = anchor.web3.Keypair.generate();
   const invalidRemainingAccount = anchor.web3.Keypair.generate();
 
