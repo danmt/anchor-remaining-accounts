@@ -39,22 +39,20 @@ pub struct MyAccount {
     optional_account: Option<Pubkey>
 }
 
+type MaybeDecodedAccount<'info> = std::result::Result<Account<'info, MyAccount>, ProgramError>;
 
-fn get_remaining_account_by_index<'info>(remaining_accounts: &[AccountInfo<'info>], index: usize) -> std::result::Result<Account<'info, MyAccount>, ProgramError> {
+fn get_remaining_account_by_index<'info>(remaining_accounts: &[AccountInfo<'info>], index: usize) -> MaybeDecodedAccount<'info> {
     let maybe_account: Option<&AccountInfo> = remaining_accounts.get(index);
-    let maybe_decoded_account: Option<std::result::Result<Account<MyAccount>, ProgramError>> = maybe_account.map(Account::try_from);
-    let remaining_account = match maybe_decoded_account {
-        Some(Ok(account)) => account,
+    let maybe_decoded_account: Option<MaybeDecodedAccount<'info>> = maybe_account.map(Account::try_from);
+    match maybe_decoded_account {
         Some(Err(_)) => return Err(ErrorCode::WrongFirstAccount.into()),
         None => return Err(ErrorCode::MissingFirstAccount.into()),
-    };
-
-    Ok(remaining_account)
+        Some(account) => account
+    }
 }
 
-fn get_first_remaining_account<'info>(remaining_accounts: &[AccountInfo<'info>])  -> std::result::Result<Account<'info, MyAccount>, ProgramError> {
-    let remaining_account = get_remaining_account_by_index(remaining_accounts, 0)?;
-    Ok(remaining_account)
+fn get_first_remaining_account<'info>(remaining_accounts: &[AccountInfo<'info>])  -> MaybeDecodedAccount<'info> {
+    get_remaining_account_by_index(remaining_accounts, 0)
 }
 
 
