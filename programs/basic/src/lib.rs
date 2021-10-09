@@ -12,10 +12,7 @@ pub mod basic {
     }
 
     pub fn create_account_with_remaining_account(ctx: Context<CreateAccount>) -> ProgramResult {
-        let remaining_account = get_first_remaining_account(ctx.remaining_accounts)?;
-
-        ctx.accounts.my_account.optional_account = Some(remaining_account.key());
-
+        ctx.accounts.my_account.optional_account = Some(get_first_remaining_account(ctx.remaining_accounts)?.key());
         Ok(())
     }
 }
