@@ -212,6 +212,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "904dfeac50f3cdaba28fc6f57fdcddb75f49ed61346676a78c4ffe55877802fd"
 
 [[package]]
+name = "basic"
+version = "0.1.0"
+dependencies = [
+ "anchor-lang",
+]
+
+[[package]]
 name = "bincode"
 version = "1.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -781,13 +788,6 @@ name = "ryu"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "71d301d4193d031abdd79ff7e3dd721168a9572ef3fe51a1517aba235bd8f86e"
-
-[[package]]
-name = "sandbox"
-version = "0.1.0"
-dependencies = [
- "anchor-lang",
-]
 
 [[package]]
 name = "semver"

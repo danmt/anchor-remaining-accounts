@@ -1,9 +1,9 @@
 use anchor_lang::prelude::*;
 
-declare_id!("DLjexKmTr6f9ZqLnYzvEVWzfH7b6dpFPjgdn5P7t2UeM");
+declare_id!("ATAxWUNPqhcMwRHsALbdjB2ZPRn82JfJ1uvb6jSoad3A");
 
 #[program]
-pub mod sandbox {
+pub mod basic {
     use super::*;
 
     pub fn create_account(ctx: Context<CreateAccount>) -> ProgramResult {

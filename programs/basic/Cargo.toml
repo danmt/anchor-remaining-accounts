@@ -1,12 +1,12 @@
 [package]
-name = "sandbox"
+name = "basic"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2018"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "sandbox"
+name = "basic"
 
 [features]
 no-entrypoint = []
@@ -16,4 +16,3 @@ default = []
 
 [dependencies]
 anchor-lang = "0.17.0"
-

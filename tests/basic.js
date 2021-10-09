@@ -1,7 +1,7 @@
 const anchor = require("@project-serum/anchor");
 const { assert } = require("chai");
 
-describe("sandbox", () => {
+describe("basic", () => {
   // Configure the client to use the local cluster.
   anchor.setProvider(anchor.Provider.env());
   const program = anchor.workspace.Sandbox;

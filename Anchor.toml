@@ -1,5 +1,5 @@
 [programs.localnet]
-sandbox = "DLjexKmTr6f9ZqLnYzvEVWzfH7b6dpFPjgdn5P7t2UeM"
+basic = "ATAxWUNPqhcMwRHsALbdjB2ZPRn82JfJ1uvb6jSoad3A"
 
 [registry]
 url = "https://anchor.projectserum.com"
